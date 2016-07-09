@@ -1,0 +1,11 @@
+-v
+
+--keep=
+highway=traffic_signals
+
+--keep-relations=
+
+--drop-tags=
+all
+
+--out-osm

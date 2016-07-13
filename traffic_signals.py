@@ -37,6 +37,7 @@ for country in countries:
 				newfile.write(line)
 
 	print("Removing our downloaded files and intermediate files to clean up")
+        os.remove(country + "-latest.osm.pbf")
 	os.remove(country + "-latest.osm")
 	os.remove(country + "-latest.o5m")
 	os.remove(country + "-latest.gpx")

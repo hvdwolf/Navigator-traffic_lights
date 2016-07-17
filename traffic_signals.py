@@ -3,20 +3,32 @@
 
 # Version 1.0, 201607, Harry van der Wolf
 
-import os, sys, platform, urllib2
+import os, sys, platform, subprocess
+try:
+	# For Python 3.0 and later
+	from urllib.request import urlopen
+except ImportError:
+	# Fall back to Python 2's urllib2
+	from urllib2 import urlopen
 
+
+# set for windows
+gpsbabel = "C:\Program Files (x86)\GPSBabel\gpsbabel.exe"
+# 
 
 region = "europe"		# or north-america, asia, south-america, africa, australia-oceania, central-america
-countries = ["austria", "belgium", "czech-republic", "denmark", "finland", "france", "germany", "great-britain", "greece", "hungary", "ireland-and-northern-ireland", "italy", "luxembourg", "netherlands", "norway", "poland", "portugal", "spain", "sweden", "switzerland"]
+countries = ["austria", "belgium", "czech-republic", "denmark", "finland", "france", "germany", "great-britain", "hungary", "ireland-and-northern-ireland", "italy", "luxembourg", "netherlands", "norway", "poland", "portugal", "spain", "sweden", "switzerland"]
+### "greece",  -> Greece currently doesn work due to unicode characters. Need to checkthat sometime
 
 # test country
 #countries = ["luxembourg", "belgium"]
 
+OSplatform = platform.system()
 for country in countries:
 	print("\n\n== Downloading and processing " + country + " ==")
 	print("\n== Downloading")
 	map_url = "http://download.geofabrik.de/" + region + "/" + country + "-latest.osm.pbf"
-	mapfile = urllib2.urlopen( map_url )
+	mapfile = urlopen( map_url )
 	with open( country + "-latest.osm.pbf", 'wb') as output:
 		output.write(mapfile.read())
 
@@ -26,7 +38,11 @@ for country in countries:
 	# on any pc/server with more than 2GB memory remove the --hash-memory=400-50-2 parameter
 	os.system("osmfilter " + country + "-latest.o5m	--hash-memory=400-50-2 --parameter-file=traffic_signals.txt	> " + country + "-latest.osm")
 	print("\n\n== run gpsbabel on our country filtered osm file to convert to gpx ==")
-	os.system("gpsbabel -i osm -f " + country + "-latest.osm -o gpx -F " + country + "-latest.gpx")
+	if OSplatform == "Windows":
+		os.system('"' + gpsbabel + '"' + " -i osm -f " + country + "-latest.osm -o gpx -F " + country + "-latest.gpx")
+		#subprocess.call(gpsbabel + " -i osm -f " + country + "-latest.osm -o gpx -F " + country + "-latest.gpx")
+	else:
+		os.system("gpsbabel -i osm -f " + country + "-latest.osm -o gpx -F " + country + "-latest.gpx")
 
 
 	print("\n\n== Remove some unneccessary lines ==")
@@ -37,7 +53,7 @@ for country in countries:
 				newfile.write(line)
 
 	print("Removing our downloaded files and intermediate files to clean up")
-        os.remove(country + "-latest.osm.pbf")
+	os.remove(country + "-latest.osm.pbf")
 	os.remove(country + "-latest.osm")
 	os.remove(country + "-latest.o5m")
 	os.remove(country + "-latest.gpx")

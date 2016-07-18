@@ -4,12 +4,12 @@
 # Version 1.0, 201607, Harry van der Wolf
 
 import os, sys, platform, subprocess
-try:
-	# For Python 3.0 and later
-	from urllib.request import urlopen
-except ImportError:
+if sys.version_info<(3,0,0):
 	# Fall back to Python 2's urllib2
 	from urllib2 import urlopen
+else:
+	# For Python 3.0 and later
+	from urllib.request import urlopen
 
 
 # set for windows

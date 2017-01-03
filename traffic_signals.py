@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 # Version 1.0, 201607, Harry van der Wolf
-# Version 1.1, 201701, Harry van der Wolf; urllib do not read large files into memory)
+# Version 1.1, 201701, Harry van der Wolf; urllib -> do not read large files into memory)
 
-import os, sys, platform, subprocess
-from shutil import copyfile
+import os, sys, platform, subprocess, shutil
+
 
 if sys.version_info<(3,0,0):
 	# Fall back to Python 2's urllib2
@@ -14,40 +14,37 @@ else:
 	# For Python 3.0 and later
 	from urllib.request import urlopen
 
-# Use dictionary for our variables
+# Use dictionary for our variables, makes it easier to structure this script into functions (if I feel it is necessary :) )
 var_dirs = {}
 
 ###################################################
 ###################################################
 
 # Between the double lines you need to modify some data. Outside is not necessary
-
-var_dirs['gpsbabel'] = "C:\Program Files (x86)\GPSBabel\gpsbabel.exe"
+# These two lines are for windows. Note: Even on windows you need to use FORWARD slashes
+var_dirs['gpsbabel'] = "C:/Program Files (x86)/GPSBabel/gpsbabel.exe"
 var_dirs['DIGGERPATH'] = "C:/Users/387640/Downloads/digger_console"
-
-
 
 region = "europe"		# or north-america, asia, south-america, africa, australia-oceania, central-america
 #countries = ["austria", "belgium", "czech-republic", "denmark", "finland", "france", "germany", "great-britain", "hungary", "ireland-and-northern-ireland", "italy", "luxembourg", "netherlands", "norway", "poland", "portugal", "spain", "sweden", "switzerland"]
 ### "greece",  -> Greece currently doesn work due to unicode characters. Need to checkthat sometime
 
 # test country
-countries = ["luxembourg", "belgium"]
+#countries = ["luxembourg"]
 
+# Below these double hashtags line you should not have to change anything
 ###################################################
 ###################################################
 
 ######################################################################
 # Now create some base directories and the variables for it
 
-cur_dir  = os.path.dirname(os.path.abspath(__file__))
-
 
 var_dirs['CUR_DIR'] = os.path.dirname(os.path.abspath(__file__))
-var_dirs['WORKDIR'] = os.path.join(cur_dir, "Workdir")
+var_dirs['WORKDIR'] = os.path.join(var_dirs['CUR_DIR'], "Workdir")
 if not os.path.exists(var_dirs['WORKDIR']):
     os.mkdir(var_dirs['WORKDIR'])
-var_dirs['OutputDir'] = os.path.join(cur_dir, "OutputDir")
+var_dirs['OutputDir'] = os.path.join(var_dirs['CUR_DIR'], "OutputDir")
 if not os.path.exists(var_dirs['OutputDir']):
     os.mkdir(var_dirs['OutputDir'])
 
@@ -102,28 +99,31 @@ for country in countries:
 	os.remove(filesprefix + "-latest.gpx")
 	
 	print("###############################################")
-	print("Now creating the mca file(s)")
+	print("Now creating the mca file")
 	# Create tmp dir for digger_config and gpx
 	TMPworkDir = os.path.join(var_dirs['CUR_DIR'], country.upper() + "-TrafficSignals")
 	if not os.path.exists(TMPworkDir):
 		os.mkdir(TMPworkDir)
-	copyfile(filesprefix + "-TrafficSignals.gpx", os.path.join(TMPworkDir, country.upper() + "-TrafficSignals.gpx"))
+	shutil.copyfile(filesprefix + "-TrafficSignals.gpx", os.path.join(TMPworkDir, country.upper() + "-TrafficSignals.gpx"))
 	# Create digger_config file
 	f = open(os.path.join(var_dirs['CUR_DIR'],"basic_digger_config.xml"),'r')
 	filedata = f.read()
 	f.close()
 	newdata = filedata.replace("COUNTRY", country.upper())
-	newdata = newdata.replace("WORKDIR", var_dirs['WORKDIR'])
-	newdata = newdata.replace("CUR_DIR", var_dirs['CUR_DIR'])
+	newdata = newdata.replace("WORKDIR", var_dirs['WORKDIR'].replace('\\', '/'))
+	newdata = newdata.replace("CUR_DIR", var_dirs['CUR_DIR'].replace("\\","/"))
 	f = open(os.path.join(TMPworkDir, "digger_config.xml"),'w')
 	f.write(newdata)
 	f.close()	
 	
 	# Switch to digger console directory
 	os.chdir(var_dirs['DIGGERPATH'])
+	print("Calling diggerconsole to create the mca")
 	# do a simple system call
-	os.system(var_dirs['DIGGER'] + os.path.join(TMPworkDir, "digger_config.xml"))
+	os.system(var_dirs['DIGGER'] + " " + os.path.join(TMPworkDir, "digger_config.xml"))
 	# copy mca to output folder
-	copyfile(os.path.join(TMPworkDir, country.upper() + "-TrafficSignals.mca"), os.path.join(var_dirs['OutputDir'], country.upper() + "-TrafficSignals.mca"))
+	shutil.move(os.path.join(var_dirs['CUR_DIR'], country.upper() + "-TrafficSignals.mca"), os.path.join(var_dirs['OutputDir'], country.upper() + "-TrafficSignals.mca"))
 
-print("You should now have your gpx file(s) ready. Run them through digger")
+print("###############################################")
+print("###############################################")
+print("Your mca file(s) should now be available in " + var_dirs['OutputDir'])

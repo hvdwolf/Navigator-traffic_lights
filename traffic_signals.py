@@ -30,7 +30,11 @@ for country in countries:
 	map_url = "http://download.geofabrik.de/" + region + "/" + country + "-latest.osm.pbf"
 	mapfile = urlopen( map_url )
 	with open( country + "-latest.osm.pbf", 'wb') as output:
-		output.write(mapfile.read())
+		while True:
+			tmp = file.read(1024)
+			if not tmp:
+				break
+			output.write(tmp)
 
 	print("\n== Converting " + country + " to .o5m format")
 	os.system("osmconvert -v " + country +"-latest.osm.pbf --drop-author --out-o5m > " + country + "-latest.o5m")

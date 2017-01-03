@@ -77,9 +77,9 @@ for country in countries:
 	print("\n\n== Filtering the traffic signals out of " + country + " ==")
 	# on any pc/server with more than 2GB memory remove the --hash-memory=400-50-2 parameter
 	if OSplatform == "Windows":
-		os.system(os.path.join(var_dirs['TOOLDIR'], "osmfilter.exe") + " " + filesprefix + "-latest.o5m" + " --hash-memory=400-50-2 --parameter-file=" + os.path.join(var_dirs['CUR_DIR'], 'traffic_signals.txt') + " -o=" + filesprefix + "-latest.o5m")
+		os.system(os.path.join(var_dirs['TOOLDIR'], "osmfilter.exe") + " " + filesprefix + "-latest.o5m" + " --hash-memory=400-50-2 --parameter-file=" + os.path.join(var_dirs['CUR_DIR'], 'traffic_signals.txt') + " -o=" + filesprefix + "-latest.osm")
 	else:
-		os.system("osmfilter " + filesprefix + "-latest.o5m" + "	--hash-memory=400-50-2 --parameter-file=traffic_signals.txt	> " + filesprefix + "-latest.o5m")
+		os.system("osmfilter " + filesprefix + "-latest.o5m" + "	--hash-memory=400-50-2 --parameter-file=traffic_signals.txt	> " + filesprefix + "-latest.osm")
 	print("\n\n== run gpsbabel on our country filtered osm file to convert to gpx ==")
 	if OSplatform == "Windows":
 		os.system('"' + gpsbabel + '"' + " -i osm -f " + filesprefix + "-latest.osm -o gpx -F " + filesprefix + "-latest.gpx")

@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 
 # Version 1.0, 201607, Harry van der Wolf
-# Version 1.1, 201701, Harry van der Wolf; urllib -> do not read large files into memory)
+# Version 1.1, 201701, Harry van der Wolf; 
+		urllib -> do not read large files into memory but write in chunks to disk; 
+		Create all mca files directly from the script.
 
 import os, sys, platform, subprocess, shutil
 

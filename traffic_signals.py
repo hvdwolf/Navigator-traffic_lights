@@ -29,7 +29,8 @@ var_dirs['DIGGERPATH'] = "C:/Users/387640/Downloads/digger_console"
 
 region = "europe"		# or north-america, asia, south-america, africa, australia-oceania, central-america
 countries = ["austria", "belgium", "czech-republic", "denmark", "finland", "france", "germany", "great-britain", "hungary", "ireland-and-northern-ireland", "italy", "luxembourg", "netherlands", "norway", "poland", "portugal", "spain", "sweden", "switzerland"]
-### "greece",  -> Greece currently doesn work due to unicode characters. Need to checkthat sometime
+### "greece",  -> Greece currently does not work due to unicode characters. Need to check that sometime. I assume the same is valid
+### for outher countries like the cyrillic fonts and some of the non-latin Asian fonts
 
 # test country
 #countries = ["luxembourg"]

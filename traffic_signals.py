@@ -80,7 +80,7 @@ for country in countries:
 		os.system("osmfilter " + filesprefix + "-latest.o5m" + "	--hash-memory=400-50-2 --parameter-file=traffic_signals.txt	> " + filesprefix + "-latest.osm")
 	print("\n\n== run gpsbabel on our country filtered osm file to convert to gpx ==")
 	if OSplatform == "Windows":
-		os.system('"' + gpsbabel + '"' + " -i osm -f " + filesprefix + "-latest.osm -o gpx -F " + filesprefix + "-latest.gpx")
+		os.system('"' + var_dirs['gpsbabel'] + '"' + " -i osm -f " + filesprefix + "-latest.osm -o gpx -F " + filesprefix + "-latest.gpx")
 		#subprocess.call(gpsbabel + " -i osm -f " + country + "-latest.osm -o gpx -F " + country + "-latest.gpx")
 	else:
 		os.system("gpsbabel -i osm -f " + filesprefix + "-latest.osm -o gpx -F " + filesprefix + "-latest.gpx")
@@ -93,14 +93,14 @@ for country in countries:
 			if not any(useless_word in line for useless_word in useless_words):
 				newfile.write(line)
 
-	print("Removing our downloaded files and intermediate files to clean up")
+	print("== Removing our downloaded files and intermediate files to clean up")
 	os.remove(filesprefix + "-latest.osm.pbf")
 	os.remove(filesprefix + "-latest.osm")
 	os.remove(filesprefix + "-latest.o5m")
 	os.remove(filesprefix + "-latest.gpx")
 	
 	print("###############################################")
-	print("Now creating the mca file")
+	print("== Now creating the mca file")
 	# Create tmp dir for digger_config and gpx
 	TMPworkDir = os.path.join(var_dirs['CUR_DIR'], country.upper() + "-TrafficSignals")
 	if not os.path.exists(TMPworkDir):
@@ -119,12 +119,12 @@ for country in countries:
 	
 	# Switch to digger console directory
 	os.chdir(var_dirs['DIGGERPATH'])
-	print("Calling diggerconsole to create the mca")
+	print("== Calling diggerconsole to create the mca")
 	# do a simple system call
 	os.system(var_dirs['DIGGER'] + " " + os.path.join(TMPworkDir, "digger_config.xml"))
 	# copy mca to output folder
 	shutil.move(os.path.join(var_dirs['CUR_DIR'], country.upper() + "-TrafficSignals.mca"), os.path.join(var_dirs['OutputDir'], country.upper() + "-TrafficSignals.mca"))
 
-print("###############################################")
+print("\n\n###############################################")
 print("###############################################")
 print("Your mca file(s) should now be available in " + var_dirs['OutputDir'])

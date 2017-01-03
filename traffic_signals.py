@@ -28,7 +28,7 @@ var_dirs['gpsbabel'] = "C:/Program Files (x86)/GPSBabel/gpsbabel.exe"
 var_dirs['DIGGERPATH'] = "C:/Users/387640/Downloads/digger_console"
 
 region = "europe"		# or north-america, asia, south-america, africa, australia-oceania, central-america
-#countries = ["austria", "belgium", "czech-republic", "denmark", "finland", "france", "germany", "great-britain", "hungary", "ireland-and-northern-ireland", "italy", "luxembourg", "netherlands", "norway", "poland", "portugal", "spain", "sweden", "switzerland"]
+countries = ["austria", "belgium", "czech-republic", "denmark", "finland", "france", "germany", "great-britain", "hungary", "ireland-and-northern-ireland", "italy", "luxembourg", "netherlands", "norway", "poland", "portugal", "spain", "sweden", "switzerland"]
 ### "greece",  -> Greece currently doesn work due to unicode characters. Need to checkthat sometime
 
 # test country
@@ -40,8 +40,6 @@ region = "europe"		# or north-america, asia, south-america, africa, australia-oc
 
 ######################################################################
 # Now create some base directories and the variables for it
-
-
 var_dirs['CUR_DIR'] = os.path.dirname(os.path.abspath(__file__))
 var_dirs['WORKDIR'] = os.path.join(var_dirs['CUR_DIR'], "Workdir")
 if not os.path.exists(var_dirs['WORKDIR']):

@@ -27,13 +27,32 @@ var_dirs = {}
 var_dirs['gpsbabel'] = "C:/Program Files (x86)/GPSBabel/gpsbabel.exe"
 var_dirs['DIGGERPATH'] = "C:/Users/387640/Downloads/digger_console"
 
-region = "europe"		# or north-america, asia, south-america, africa, australia-oceania, central-america
-countries = ["austria", "belgium", "czech-republic", "denmark", "finland", "france", "germany", "great-britain", "hungary", "ireland-and-northern-ireland", "italy", "luxembourg", "netherlands", "norway", "poland", "portugal", "spain", "sweden", "switzerland"]
-### "greece",  -> Greece currently does not work due to unicode characters. Need to check that some time. I assume the same is valid
-### for outher countries like the cyrillic font countries and some of the non-latin Asian font countries.
+# europe or north-america, asia, south-america, africa, australia-oceania, central-america
+# enable one region and one set of countries per run
+### Europe
+# Note: Even though the script allows you to download and process all countris of europe in one go, I had to do it in 3 times.
+# Simply because the download.geofabrik.de server stopped me after a number of countries with "too many requests in this 
+# time period from this user"
+region = "europe"
+countries = ["albania", "andorra", "austria", "azores", "belarus", "belgium", "bosnia-herzegovina", "bulgaria", "croatia", "cyprus", "czech-republic", "denmark", "estonia", "faroe-islands", "finland", "france", "georgia", "germany", "great-britain", "greece", "hungary", "iceland", "ireland-and-northern-ireland", "isle-of-man", "italy", "kosovo", "latvia", "liechtenstein", "lithuania", "luxembourg", "macedonia", "malta", "moldova", "monaco", "montenegro", "netherlands", "norway", "poland", "portugal", "romania", "russia", "serbia", "slovakia", "slovenia", "spain", "sweden", "switzerland", "turkey", "ukraine"]
 
-# test country
+### Russia" -> Comes without region
+#region = ""
+#countries = ["russia"]
+
+### North-America
+#region="north-america"
+# In this case I choose for the USA sub-regions instead of separated states
+#countries = ["canada", "greenland", "mexico", "us-midwest", "us-northeast", "us-pacific", "us-south", "us-west"]
+
+### South-America
+#region = "south-america"
+#countries = ["argentina", "bolivia", "brazil", "chile", "colombia", "ecuador", "paraguay", "peru", "suriname", "uruguay"]
+
+# small test country
+#region = "europe"
 #countries = ["luxembourg"]
+
 
 # Below these double hashtags line you should not have to change anything
 ###################################################

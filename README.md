@@ -29,3 +29,5 @@ The script is currently "not finished" for linux/unix/MacOS X. DiggerConsole wor
   4. Your final mca files can be found in ```<drive>:\<path_to_>\Navigator-traffic-lights\Outputdir```
 
 Note that if you have a lot of countries, and especially the big countries like Germany, France, Russia, Canada, etc, it will take quite some time. The script outputs comments to the terminal to show you what it is currently doing.
+
+Note 2: It might be tempting to copy every Traffic Lights POI map you created (or downloaded) to your device, but please note that more than 10-15 POI maps will slow down Navigator.

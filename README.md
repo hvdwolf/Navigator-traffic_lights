@@ -1,6 +1,6 @@
 # Navigator-traffic_lights
 
-Unfortunately Navigator does not have traffic lights in their maps.
+Unfortunately MNF Navigator does not have traffic lights in their maps.
 This python script "traffic_lights.py" and the accompanying files create "COUNTRY"-TrafficLights.mca files for you.
 
 I rewrote the script for windows as the last step is the use of DiggerConsole.exe.
@@ -30,3 +30,19 @@ The script is currently "not finished" for linux/unix/MacOS X. DiggerConsole wor
 
 Note that if you have a lot of countries, and especially the big countries like Germany, France, Russia, Canada, etc, it will take quite some time. The script outputs comments to the terminal to show you what it is currently doing.
 
+## Countries:
+### Europe
+albania, andorra, austria, azores, belarus, belgium, bosnia-herzegovina, bulgaria, croatia, cyprus, czech-republic, denmark, estonia, faroe-islands, finland, france, georgia, germany, great-britain, greece, hungary, iceland, ireland-and-northern-ireland, isle-of-man, italy, kosovo, latvia, liechtenstein, lithuania, luxembourg, macedonia, malta, moldova, monaco, montenegro, netherlands, norway, poland, portugal, romania, russia, serbia, slovakia, slovenia, spain, sweden, switzerland, turkey, ukraine
+
+### Russia -> Comes without region
+russia
+
+### North-America
+**In this case I choose for the USA sub-regions instead of separated states**</br>
+canada, greenland, mexico, us-midwest, us-northeast, us-pacific, us-south, us-west
+
+### South-America
+argentina, bolivia, brazil, chile, colombia, ecuador, paraguay, peru, suriname, uruguay
+
+### Asia
+afghanistan, azerbaijan, bangladesh, cambodia, china, gcc-states, india, indonesia, iran, iraq, israel-and-palestine, japan, jordan, kazakhstan, kyrgyzstan, lebanon, malaysia-singapore-brunei, maldives, mongolia, myanmar, nepal, north-korea, pakistan, philippines, south-korea, sri-lanka, syria, taiwan, tajikistan, thailand, turkmenistan, uzbekistan, vietnam, yemen

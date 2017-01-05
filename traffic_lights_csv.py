@@ -33,7 +33,7 @@ var_dirs['DIGGERPATH'] = "C:/Users/387640/Downloads/digger_console"
 # Simply because the download.geofabrik.de server stopped me after a number of countries with "too many requests in this 
 # time period from this user"
 region = "europe"
-countries = ["albania", "andorra", "austria", "azores", "belarus", "belgium", "bosnia-herzegovina", "bulgaria", "croatia", "cyprus", "czech-republic", "denmark", "estonia", "faroe-islands", "finland", "france", "georgia", "germany", "great-britain", "greece", "hungary", "iceland", "ireland-and-northern-ireland", "isle-of-man", "italy", "kosovo", "latvia", "liechtenstein", "lithuania", "luxembourg", "macedonia", "malta", "moldova", "monaco", "montenegro", "netherlands", "norway", "poland", "portugal", "romania", "russia", "serbia", "slovakia", "slovenia", "spain", "sweden", "switzerland", "turkey", "ukraine"]
+countries = ["albania", "andorra", "austria", "azores", "belarus", "belgium", "bosnia-herzegovina", "bulgaria", "croatia", "cyprus", "czech-republic", "denmark", "estonia", "faroe-islands", "finland", "france", "georgia", "germany", "great-britain", "greece", "hungary", "iceland", "ireland-and-northern-ireland", "isle-of-man", "italy", "kosovo", "latvia", "liechtenstein", "lithuania", "luxembourg", "macedonia", "malta", "moldova", "monaco", "montenegro", "netherlands", "norway", "poland", "portugal", "romania", "serbia", "slovakia", "slovenia", "spain", "sweden", "switzerland", "turkey", "ukraine"]
 
 ### Russia" -> Comes without region
 #region = ""

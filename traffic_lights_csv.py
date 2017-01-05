@@ -107,14 +107,14 @@ for country in countries:
 		os.system('"' + var_dirs['gpsbabel'] + '"' + " -i osm -f " + filesprefix + "-latest.osm -o unicsv,fields=lat+lon+osm_id -F " + filesprefix + "-latest.csv")
 		#subprocess.call(gpsbabel + " -i osm -f " + country + "-latest.osm -o gpx -F " + country + "-latest.gpx")
 	else:
-		os.system("gpsbabel -i osm -f " + filesprefix + "-latest.osm -o gpx -F " + filesprefix + "-latest.gpx")
+		os.system("gpsbabel -i osm -f " + filesprefix + "-latest.osm -o unicsv,fields=lat+lon+osm_id -F " + filesprefix + "-latest.csv")
 
 
 	print("Removing our downloaded files and intermediate files to clean up")
 	os.remove(filesprefix + "-latest.osm.pbf")
 	os.remove(filesprefix + "-latest.osm")
 	os.remove(filesprefix + "-latest.o5m")
-	os.remove(filesprefix + "-latest.gpx")
+	#os.remove(filesprefix + "-latest.csv")
 	
 	print("###############################################")
 	print("Now creating the mca file")

@@ -51,7 +51,6 @@ countries = ["albania", "andorra", "austria", "azores", "belarus", "belgium", "b
 ### Asia
 #region = "asia"
 #countries = ["afghanistan", "azerbaijan", "bangladesh", "cambodia", "china", "gcc-states", "india", "indonesia", "iran", "iraq", "israel-and-palestine", "japan", "jordan", "kazakhstan", "kyrgyzstan", "lebanon", "malaysia-singapore-brunei", "maldives", "mongolia", "myanmar", "nepal", "north-korea", "pakistan", "philippines", "south-korea", "sri-lanka", "syria", "taiwan", "tajikistan", "thailand", "turkmenistan", "uzbekistan", "vietnam", "yemen"]
-#countries = ["iraq", "israel-and-palestine", "japan", "jordan", "kazakhstan", "kyrgyzstan", "lebanon", "malaysia-singapore-brunei", "maldives", "mongolia", "myanmar", "nepal", "north-korea", "pakistan", "philippines", "south-korea", "sri-lanka", "syria", "taiwan", "tajikistan", "thailand", "turkmenistan", "uzbekistan", "vietnam", "yemen"]
 
 # small test country
 #region = "europe"

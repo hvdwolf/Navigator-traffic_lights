@@ -29,7 +29,7 @@ The script is currently "not finished" for linux/unix/MacOS X. DiggerConsole wor
   4. Your final mca files can be found in ```<drive>:\<path_to_>\Navigator-traffic-lights\Outputdir```
 
 Note that if you have a lot of countries, and especially the big countries like Germany, France, Russia, Canada, etc, it will take quite some time. The script outputs comments to the terminal to show you what it is currently doing.
-Note 2: If you plan on creating all files for every country, your conversion might get stuck 3/4 of Europe as download.geofabrik.de will mention that you have reached "the maximum number of downloads for your ip-address". This will repeat itself for Asia. Simply edit the list and remove the already downloaded.converted countries.
+<br>Note 2: If you plan on creating all files for every country, your conversion might get stuck at 3/4 of Europe as download.geofabrik.de will mention that you have reached "the maximum number of downloads for your ip-address". This will repeat itself for Asia. Simply edit the list and remove the already downloaded and converted countries.
 
 ## Countries:
 ### Europe
@@ -39,7 +39,7 @@ albania, andorra, austria, azores, belarus, belgium, bosnia-herzegovina, bulgari
 russia
 
 ### North-America
-**In this case I choose for the USA sub-regions instead of separated states**</br>
+**In this case I choose for the USA sub-regions instead of all separate states**</br>
 canada, greenland, mexico, us-midwest, us-northeast, us-pacific, us-south, us-west
 
 ### South-America

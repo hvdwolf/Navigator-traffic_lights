@@ -6,6 +6,9 @@ This python script "traffic_lights.py" and the accompanying files create "COUNTR
 I rewrote the script for windows as the last step is the use of DiggerConsole.exe.
 The script is currently "not finished" for linux/unix/MacOS X. DiggerConsole works with wine under linux/unix/MacOS X but I did not spend time on it right now (even though I'm an avid linux user and do not even have a windows pc myself).
 
+**Downloads**</br>
+Now if you are lazy and you simply want to download the ready made mca files, see [here](https://github.com/hvdwolf/Navigator-traffic_lights/releases).
+
 **What does the script (automatically) do:**</br>
   1. It downloads the country/countries you specify in the top of the script from [download.geofabrik.de](http://download.geofabrik.de/) in the "Protocolbuffer Binary Format".</br>
   2. It converts the downloaded "country".pbf files via a few steps to .csv files</br>

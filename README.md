@@ -23,12 +23,12 @@ Now if you are lazy and you simply want to download the ready made mca files, se
 
 **HowTo:**</br>
   1. If you downloaded these repository as zip, unzip the file.</br>
-  2. Open traffic_lights.py in some text editor.</br>
+  2. Open traffic_lights_csv.py in some text editor. (do not use the gpx version. gpsbabel does not handle it correctly.)</br>
     1. Set the correct path **with** executable for gpsbabel (use forward slashes).</br>
     2. Set the correct path (only path) for DiggerConsole (use forward slashes).</br>
     3. Enable the ```region``` string of your choice. Note: Can only be one single region.</br>
     4. Enable and edit the ```countries``` list belonging to that region. This is a list containing the country name (all in lower case), surrounded by double quotes and separated by a comma. Note: Make sure that all countries belong to the specified region and only enable the countries you need.</br>
-  3. Once correctly configured start the python script **from inside** the "Navigator-traffic-lights" folder (or whatever you named that folder) like ```python traffic_lights.py```</br>
+  3. Once correctly configured start the python script **from inside** the "Navigator-traffic-lights" folder (or whatever you named that folder) like ```python traffic_lights_csv.py```</br>
   4. Your final mca files can be found in ```<drive>:\<path_to_>\Navigator-traffic-lights\Outputdir```
 
 Note that if you have a lot of countries, and especially the big countries like Germany, France, Russia, Canada, etc, it will take quite some time. The script outputs comments to the terminal to show you what it is currently doing.
